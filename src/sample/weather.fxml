@@ -1,0 +1,505 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="350.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.WeatherController">
+   <center>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+        <tabs>
+          <Tab fx:id="weather" text="Pogoda">
+               <content>
+                  <BorderPane>
+                     <left>
+                        <HBox maxHeight="-Infinity" maxWidth="-Infinity" prefWidth="200.0" BorderPane.alignment="TOP_LEFT">
+                           <children>
+                              <VBox maxHeight="-Infinity" maxWidth="-Infinity" minWidth="-Infinity">
+                                 <children>
+                                    <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Temperatura:">
+                                       <VBox.margin>
+                                          <Insets right="2.0" top="16.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font name="Georgia" size="12.0" />
+                                       </font></Label>
+                                    <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Ciśnienie:">
+                                       <VBox.margin>
+                                          <Insets right="2.0" top="8.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font name="Georgia" size="12.0" />
+                                       </font></Label>
+                                    <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Wilgotność:">
+                                       <VBox.margin>
+                                          <Insets right="2.0" top="8.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font name="Georgia" size="12.0" />
+                                       </font></Label>
+                                    <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Temp. minimalna:">
+                                       <VBox.margin>
+                                          <Insets right="2.0" top="8.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font name="Georgia" size="12.0" />
+                                       </font></Label>
+                                    <Label alignment="CENTER_RIGHT" maxWidth="1.7976931348623157E308" text="Temp. maksymalna:">
+                                       <VBox.margin>
+                                          <Insets right="2.0" top="8.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font name="Georgia" size="12.0" />
+                                       </font></Label>
+                                    <Label alignment="CENTER_RIGHT" layoutX="10.0" layoutY="111.0" maxWidth="1.7976931348623157E308" text="Prędkość wiatru:">
+                                       <font>
+                                          <Font name="Georgia" size="12.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets right="2.0" top="8.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308">
+                                 <children>
+                                    <TextField fx:id="textFieldTemp" alignment="BOTTOM_LEFT" editable="false">
+                                       <font>
+                                          <Font name="Georgia" size="12.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets top="12.0" />
+                                       </VBox.margin></TextField>
+                                    <TextField fx:id="textFieldPressure" alignment="BOTTOM_LEFT" editable="false">
+                                       <font>
+                                          <Font name="Georgia" size="12.0" />
+                                       </font></TextField>
+                                    <TextField fx:id="textFieldHumidity" alignment="BOTTOM_LEFT" editable="false">
+                                       <font>
+                                          <Font name="Georgia" size="12.0" />
+                                       </font></TextField>
+                                    <TextField fx:id="textFieldTempMin" alignment="BOTTOM_LEFT" editable="false">
+                                       <font>
+                                          <Font name="Georgia" size="12.0" />
+                                       </font></TextField>
+                                    <TextField fx:id="textFieldTempMax" alignment="BOTTOM_LEFT" editable="false">
+                                       <font>
+                                          <Font name="Georgia" size="12.0" />
+                                       </font></TextField>
+                                    <TextField fx:id="textFieldWind" alignment="BOTTOM_LEFT">
+                                       <font>
+                                          <Font name="Georgia" size="12.0" />
+                                       </font></TextField>
+                                 </children></VBox>
+                           </children>
+                        </HBox>
+                     </left>
+                     <padding>
+                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                     </padding>
+                     <bottom>
+                        <Label fx:id="labelTime" maxWidth="-Infinity" BorderPane.alignment="BOTTOM_LEFT">
+                           <font>
+                              <Font name="Georgia Italic" size="12.0" />
+                           </font>
+                        </Label>
+                     </bottom>
+                     <right>
+                        <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
+                           <children>
+                              <HBox>
+                                 <children>
+                                    <Label text="Sprawdzaj pogodę co:">
+                                       <HBox.margin>
+                                          <Insets right="2.0" top="5.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font name="Georgia" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="TextFieldFrequency" alignment="TOP_LEFT" prefHeight="25.0" prefWidth="35.0" text="5">
+                                       <font>
+                                          <Font name="Georgia" size="12.0" />
+                                       </font>
+                                    </TextField>
+                                    <Label text="min">
+                                       <HBox.margin>
+                                          <Insets left="2.0" top="5.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font name="Georgia" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Button fx:id="ButtonSetFrequency" mnemonicParsing="false" onAction="#ButtonSetFrequencyClicked" text="Ustaw">
+                                       <HBox.margin>
+                                          <Insets left="10.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                              <ProgressBar fx:id="CountDownProgressBar" maxWidth="1.7976931348623157E308">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </ProgressBar>
+                              <Label fx:id="numberOfMeasurments" text="Liczba pomiarów:">
+                                 <font>
+                                    <Font name="Georgia Italic" size="12.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets top="5.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <HBox maxWidth="1.7976931348623157E308">
+                                 <children>
+                                    <Label maxWidth="1.7976931348623157E308" text="Nazwa pliku:">
+                                       <HBox.margin>
+                                          <Insets right="2.0" top="4.0" />
+                                       </HBox.margin>
+                                       <font>
+                                          <Font name="Georgia" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="textFieldFileName" maxWidth="1.7976931348623157E308">
+                                       <font>
+                                          <Font name="Georgia" size="12.0" />
+                                       </font>
+                                    </TextField>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="5.0" top="20.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <Button fx:id="buttonSave" maxWidth="1.7976931348623157E308" minWidth="-Infinity" mnemonicParsing="false" onAction="#ButtonSaveClicked" text="Zapisz dane">
+                                       <font>
+                                          <Font name="Georgia" size="12.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets top="4.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                    <Button fx:id="ButtonLoad" maxWidth="1.7976931348623157E308" minWidth="-Infinity" mnemonicParsing="false" onAction="#ButtonLoadClicked" text="Wczytaj dane">
+                                       <font>
+                                          <Font name="Georgia" size="12.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets left="10.0" top="4.0" />
+                                       </HBox.margin>
+                                    </Button>
+                                 </children>
+                              </HBox>
+                           </children>
+                           <BorderPane.margin>
+                              <Insets />
+                           </BorderPane.margin>
+                        </VBox>
+                     </right>
+                  </BorderPane>
+               </content></Tab>
+          <Tab fx:id="temp" text="Temperatura">
+               <content>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <center>
+                        <LineChart fx:id="lineChartTemp" BorderPane.alignment="CENTER">
+                          <xAxis>
+                            <CategoryAxis label="Godzina" side="RIGHT" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis label="Temperatura [°C]" side="LEFT" />
+                          </yAxis>
+                        </LineChart>
+                     </center>
+                     <bottom>
+                        <HBox BorderPane.alignment="CENTER">
+                           <children>
+                              <Label />
+                              <Label maxWidth="1.7976931348623157E308" minWidth="-Infinity" text="Wartość maksymalna:">
+                                 <font>
+                                    <Font name="Georgia" size="12.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets right="2.0" top="5.0" />
+                                 </HBox.margin></Label>
+                              <TextField fx:id="TextFieldMaxTemp">
+                                 <HBox.margin>
+                                    <Insets right="15.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <Label minWidth="-Infinity" text="Wartość minimalna:">
+                                 <font>
+                                    <Font name="Georgia" size="12.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets right="2.0" top="5.0" />
+                                 </HBox.margin></Label>
+                              <TextField fx:id="TextFieldMinTemp">
+                                 <HBox.margin>
+                                    <Insets right="15.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" minWidth="-Infinity" text="Odchylenie standardowe:">
+                                 <font>
+                                    <Font name="Georgia" size="12.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets right="2.0" top="5.0" />
+                                 </HBox.margin></Label>
+                              <TextField fx:id="TextFieldStandardDeviationTemp" />
+                           </children>
+                        </HBox>
+                     </bottom>
+                     <padding>
+                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                     </padding>
+                  </BorderPane>
+               </content></Tab>
+            <Tab text="Ciśnienie">
+               <content>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <center>
+                        <AreaChart fx:id="areaChartPressure" BorderPane.alignment="CENTER">
+                          <xAxis>
+                            <CategoryAxis label="Godzina" side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis label="Ciśnienie [hPa]" side="LEFT" />
+                          </yAxis>
+                        </AreaChart>
+                     </center>
+                     <bottom>
+                        <HBox BorderPane.alignment="CENTER">
+                           <children>
+                              <HBox>
+                                 <children>
+                                    <Label maxWidth="1.7976931348623157E308" minWidth="-Infinity" text="Wartość maksymalna:">
+                                       <font>
+                                          <Font name="Georgia" size="12.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets right="2.0" top="5.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <TextField fx:id="TexTFieldMaxPress">
+                                       <HBox.margin>
+                                          <Insets right="15.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                    <Label minWidth="-Infinity" text="Wartość minimalna:">
+                                       <font>
+                                          <Font name="Georgia" size="12.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets right="2.0" top="5.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <TextField fx:id="TexTFieldMinPress">
+                                       <HBox.margin>
+                                          <Insets right="15.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                    <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" minWidth="-Infinity" text="Odchylenie standardowe:">
+                                       <font>
+                                          <Font name="Georgia" size="12.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets right="2.0" top="5.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <TextField fx:id="TextFieldStandardDeviationPress" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </HBox>
+                     </bottom>
+                     <padding>
+                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                     </padding>
+                  </BorderPane>
+               </content></Tab>
+            <Tab text="Wilgotność">
+               <content>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <center>
+                        <BarChart fx:id="barChartHumidity" BorderPane.alignment="CENTER">
+                          <xAxis>
+                            <CategoryAxis label="Godzina" side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis label="Wilgotność [%]" side="LEFT" />
+                          </yAxis>
+                        </BarChart>
+                     </center>
+                     <bottom>
+                        <HBox BorderPane.alignment="CENTER">
+                           <children>
+                              <HBox>
+                                 <children>
+                                    <Label maxWidth="1.7976931348623157E308" minWidth="-Infinity" text="Wartość maksymalna:">
+                                       <font>
+                                          <Font name="Georgia" size="12.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets right="2.0" top="5.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <TextField fx:id="TexTFieldMaxHum">
+                                       <HBox.margin>
+                                          <Insets right="15.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                    <Label minWidth="-Infinity" text="Wartość minimalna:">
+                                       <font>
+                                          <Font name="Georgia" size="12.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets right="2.0" top="5.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <TextField fx:id="TextFieldMinHum">
+                                       <HBox.margin>
+                                          <Insets right="15.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                    <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" minWidth="-Infinity" text="Odchylenie standardowe:">
+                                       <font>
+                                          <Font name="Georgia" size="12.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets right="2.0" top="5.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <TextField fx:id="TextFieldStandardDeviationHum" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </HBox>
+                     </bottom>
+                     <padding>
+                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                     </padding>
+                  </BorderPane>
+               </content></Tab>
+            <Tab text="Prędkość wiatru">
+               <content>
+                  <BorderPane prefHeight="200.0" prefWidth="200.0">
+                     <center>
+                        <LineChart fx:id="lineChartSpeed" BorderPane.alignment="CENTER">
+                          <xAxis>
+                            <CategoryAxis label="Godzina" side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis label="Prędkość wiatru [m/s]" side="LEFT" />
+                          </yAxis>
+                        </LineChart>
+                     </center>
+                     <padding>
+                        <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                     </padding>
+                     <bottom>
+                        <HBox BorderPane.alignment="CENTER">
+                           <children>
+                              <HBox>
+                                 <children>
+                                    <Label maxWidth="1.7976931348623157E308" minWidth="-Infinity" text="Wartość maksymalna:">
+                                       <font>
+                                          <Font name="Georgia" size="12.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets right="2.0" top="5.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <TextField fx:id="TextFieldMaxSpeed">
+                                       <HBox.margin>
+                                          <Insets right="15.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                    <Label minWidth="-Infinity" text="Wartość minimalna:">
+                                       <font>
+                                          <Font name="Georgia" size="12.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets right="2.0" top="5.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <TextField fx:id="TextFieldMinSpeed">
+                                       <HBox.margin>
+                                          <Insets right="15.0" />
+                                       </HBox.margin>
+                                    </TextField>
+                                    <Label alignment="CENTER_RIGHT" contentDisplay="CENTER" minWidth="-Infinity" text="Odchylenie standardowe:">
+                                       <font>
+                                          <Font name="Georgia" size="12.0" />
+                                       </font>
+                                       <HBox.margin>
+                                          <Insets right="2.0" top="5.0" />
+                                       </HBox.margin>
+                                    </Label>
+                                    <TextField fx:id="TextFieldStandardDeviationSpeed" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </HBox>
+                     </bottom></BorderPane>
+               </content></Tab>
+        </tabs>
+      </TabPane>
+   </center>
+   <top>
+      <HBox BorderPane.alignment="CENTER">
+         <children>
+            <Label maxHeight="1.7976931348623157E308" text="Sprawdź pogodę w:" textAlignment="CENTER">
+               <HBox.margin>
+                  <Insets right="8.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="Georgia" size="14.0" />
+               </font></Label>
+            <TextField fx:id="textFieldPlace">
+               <HBox.margin>
+                  <Insets right="8.0" />
+               </HBox.margin>
+               <font>
+                  <Font size="13.0" />
+               </font></TextField>
+            <Button fx:id="ButtonCheck" alignment="CENTER" maxHeight="1.7976931348623157E308" mnemonicParsing="false" onAction="#ButtonCheckClicked" text="Sprawdź" textAlignment="CENTER">
+               <font>
+                  <Font name="Georgia" size="13.0" />
+               </font></Button>
+            <Button fx:id="ButtonStop" maxHeight="1.7976931348623157E308" mnemonicParsing="false" onAction="#ButtonStopClicked" text="Stop">
+               <font>
+                  <Font name="Georgia" size="13.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="4.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="ButtonStart" maxHeight="1.7976931348623157E308" mnemonicParsing="false" onAction="#ButtonStartClicked" text="Start">
+               <HBox.margin>
+                  <Insets left="4.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="Georgia" size="13.0" />
+               </font>
+            </Button>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+         </BorderPane.margin>
+      </HBox>
+   </top>
+</BorderPane>
